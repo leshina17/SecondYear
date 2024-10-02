@@ -4,13 +4,15 @@ class ArrayHandler {
 private:
     size_t _size;
     T* _array;
+
 public:
     ArrayHandler(size_t size = 10) {
+        
 
     }
 
     void AppendElem(T elem) {
-
+        
     }
 
     bool IsContains(T elem) {

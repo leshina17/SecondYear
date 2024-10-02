@@ -5,6 +5,12 @@ private:
     size_t _sizeBit;
     uint16_t* _mem;
     size_t _memSize;
+    size_t Get_mem_index (size_t n) const{
+        size_t index=n/(8*sizeof(uint16_t));
+        if (n>=_sizeBit)
+            throw "bit out of range!!";
+        return index;
+    }
 
     size_t GetMemIndex(size_t n) const;
     uint16_t GetMask(size_t n) const;
