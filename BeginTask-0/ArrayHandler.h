@@ -36,11 +36,11 @@ public:
     }
 
     bool IsContains(T elem) {
-        for (int i = 0; i < _size; ++i) {
-        if (_array[i] == elem) {
-            return true;
-        }
-    }
+        // for (int i = 0; i < _size; ++i) {
+        // if (_array[i] == elem) {
+        //     return true;
+        // }
+    //}
         return false;
     }
 
