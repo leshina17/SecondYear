@@ -36,11 +36,18 @@ public:
     }
 
     bool IsContains(T elem) {
-        // for (int i = 0; i < _size; ++i) {
-        // if (_array[i] == elem) {
-        //     return true;
-        // }
-    //}
+        std::sort(_array, _array + _count);
+        int left = 0, right = _count - 1;
+        while (left <= right) {
+            int ind = left + (right - left) / 2;
+            if (_array[ind] == elem) {
+                return true;
+            } else if (_array[ind] < elem) {
+                left = ind + 1;
+            } else {
+                right = ind - 1;
+            }
+        }
         return false;
     }
 
