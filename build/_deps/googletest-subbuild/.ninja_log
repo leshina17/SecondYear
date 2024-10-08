@@ -1,0 +1,21 @@
+# ninja log v5
+2	59	7501290335139857	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	cb6ff9ef8ffbb6af
+2	59	7501290335139857	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	cb6ff9ef8ffbb6af
+59	10894	7501290443496835	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	56df5549ba870699
+59	10894	7501290443496835	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	56df5549ba870699
+10895	11000	0	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	9c28f97b2ff73e32
+10895	11000	0	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	9c28f97b2ff73e32
+11000	11049	7501290445047880	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	92ae7a281dc5efab
+11000	11049	7501290445047880	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	92ae7a281dc5efab
+11049	11099	7501290445550525	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	fcfd1789db16e427
+11049	11099	7501290445550525	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	fcfd1789db16e427
+11099	11148	7501290446032846	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	79efe98bfa3b60f1
+11099	11148	7501290446032846	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	79efe98bfa3b60f1
+11148	11209	7501290446632378	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	dbbde9b8bca04532
+11148	11209	7501290446632378	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	dbbde9b8bca04532
+11209	11258	7501290447128203	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	2f293f04a0f55030
+11209	11258	7501290447128203	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	2f293f04a0f55030
+11258	11331	7501290447860138	CMakeFiles/googletest-populate-complete	8146fb01cc035296
+11258	11331	7501290447860138	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	8146fb01cc035296
+11258	11331	7501290447860138	D:/iip/SecondYear/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete	8146fb01cc035296
+11258	11331	7501290447860138	D:/iip/SecondYear/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	8146fb01cc035296
