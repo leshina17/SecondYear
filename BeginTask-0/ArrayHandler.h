@@ -4,7 +4,7 @@ class ArrayHandler {
 private:
     size_t _size;
     T* _array;
-    long long _count;
+    size_t _count;
     T _min;
     T _max;
 public:
@@ -17,8 +17,10 @@ public:
     }
 
     void AppendElem(T elem) {
-        _max=elem;
-        _min-elem;
+        if (_count==0){
+            _max=elem;
+            _min-elem;
+        }
         if (_count == _size) {
             _size = _size +10;
             T* new_arr = new T[_size];
