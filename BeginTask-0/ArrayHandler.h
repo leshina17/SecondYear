@@ -1,4 +1,6 @@
 #include <cstring>
+#include <limits>
+#include <algorithm>
 template<typename T>
 class ArrayHandler {
 private:
@@ -11,8 +13,8 @@ public:
     ArrayHandler(size_t size = 10) {
         _size = size;
         _array = new T[_size];
-        _max = INT8_MIN;
-        _min = INT8_MAX;
+        _max = std::numeric_limits<T>::min();
+        _min = std::numeric_limits<T>::max();
         _count = 0;
     }
 
@@ -22,7 +24,7 @@ public:
             _min-elem;
         }
         if (_count == _size) {
-            _size = _size +10;
+            _size = _size*3;
             T* new_arr = new T[_size];
             std::memcpy(new_arr, _array, _count*sizeof(T));
             delete [] _array;
@@ -39,18 +41,7 @@ public:
 
     bool IsContains(T elem) {
         std::sort(_array, _array + _count);
-        int left = 0, right = _count - 1;
-        while (left <= right) {
-            int ind = left + (right - left) / 2;
-            if (_array[ind] == elem) {
-                return true;
-            } else if (_array[ind] < elem) {
-                left = ind + 1;
-            } else {
-                right = ind - 1;
-            }
-        }
-        return false;
+        return std::binary_search(_array[0], _array[_count], elem);
     }
 
     T GetMax() {
