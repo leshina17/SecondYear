@@ -30,10 +30,10 @@ bool Set::IsMember(const uint64_t Elem) const{
 
 
 bool Set::operator== (const Set &s) const{
-    return (_maxPower==s._maxPower)&&(_bitField==s._bitField);
+    return ((_maxPower==s._maxPower)&&(_bitField==s._bitField));
 }
 bool Set::operator!= (const Set &s) const{
-    return (_maxPower!=s._maxPower)||(_bitField!=s._bitField);
+    return ((_maxPower!=s._maxPower)||(_bitField!=s._bitField));
 }
 Set& Set::operator=(const Set &s){
     _maxPower = s._maxPower;
