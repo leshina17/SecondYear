@@ -28,6 +28,7 @@ public:
     BitField operator~();
 
     ~BitField(){
-
+        delete[] _mem;
+        _mem=nullptr;
     }
 };

@@ -72,6 +72,7 @@ Set Set::operator~ (){
 }
 std::vector<uint64_t> Set::GetPrimary(){
     std::vector<uint64_t> simple;
+    simple.push_back(1);
     Set copy(*this);// копия, чтобы не изменять исходное
     for (size_t i = 2; i <= copy.GetMaxPower(); ++i) {
         if (copy.IsMember(i)) {
