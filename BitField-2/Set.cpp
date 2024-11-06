@@ -22,7 +22,9 @@ void Set::InsElem(const uint64_t Elem){
 void Set::DelElem(const uint64_t Elem){
     _bitField.ClrBit(Elem);
 }
-bool Set::IsMember(const uint64_t Elem) const{
+bool Set::IsMember(uint64_t Elem) const{
+    if (Elem >= _maxPower) 
+        throw std::out_of_range("wrong!");
     return _bitField.GetBit(Elem);
 }
 
