@@ -43,15 +43,11 @@ Set& Set::operator=(const Set &s){
     return *this; 
 }
 Set Set::operator+ (const uint64_t Elem){
-    Set result(*this);
-    result.InsElem(Elem);
-    return result;
+    return *this;
 }
                                   
 Set Set::operator- (const uint64_t Elem){
-    Set result(*this);
-    result.DelElem(Elem);
-    return result;
+    return *this;
 }
                                    
 Set Set::operator+ (const Set &s){
