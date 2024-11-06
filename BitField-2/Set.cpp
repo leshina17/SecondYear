@@ -23,8 +23,6 @@ void Set::DelElem(const uint64_t Elem){
     _bitField.ClrBit(Elem);
 }
 bool Set::IsMember(const uint64_t Elem) const{
-    if (Elem>=_maxPower)
-        throw std::out_of_range("error");
     return _bitField.GetBit(Elem);
 }
 
@@ -33,7 +31,9 @@ bool Set::operator== (const Set &s) const{
     return ((_maxPower==s._maxPower)&&(_bitField==s._bitField));
 }
 bool Set::operator!= (const Set &s) const{
-    return ((_maxPower!=s._maxPower)||(_bitField!=s._bitField));
+    if ((_maxPower==s._maxPower)&&(_bitField==s._bitField))
+        return false;
+    return true;
 }
 Set& Set::operator=(const Set &s){
     _maxPower = s._maxPower;
