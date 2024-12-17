@@ -1,5 +1,5 @@
 #include "Set.h"
-
+//ПЕРЕВОД В БИТФИЛДЫ И ОБРАТНО КАК-ТО АККУРАТНО
 
 Set::Set(size_t mp) : _bitField(10) {
     _maxPower=mp;
@@ -8,7 +8,7 @@ Set::Set(const Set &s) : _bitField(10){
     _maxPower = s._maxPower;
     _bitField = s._bitField;
 } 
-Set::Set(const BitField &bf) : _bitField(10){
+Set::Set(const BitField &bf) : _bitField(bf.GetLength()){
     _bitField = bf;
     _maxPower = bf.GetLength();
 }
@@ -28,7 +28,6 @@ bool Set::IsMember(uint64_t Elem) const{
     return _bitField.GetBit(Elem);
 }
 
-
 bool Set::operator== (const Set &s) const{
     return ((_maxPower==s._maxPower)&&(_bitField==s._bitField));
 }
@@ -38,7 +37,7 @@ bool Set::operator!= (const Set &s) const{
     return true;
 }
 Set& Set::operator=(const Set &s){
-    _maxPower = s._maxPower;
+    _maxPower = s.GetMaxPower();
     _bitField = s._bitField;
     return *this; 
 }
@@ -51,19 +50,24 @@ Set Set::operator- (const uint64_t Elem){
 }
                                    
 Set Set::operator+ (const Set &s){
-    Set result(std::max(_maxPower, s._maxPower)); //хранит результат объединения
-    result._bitField=_bitField;
-    for (size_t i = 0; i < s._maxPower; ++i) {
-        if (s._bitField.GetBit(i)) {
-            result._bitField.SetBit(i); 
-        }
+    Set res= Set(s);
+    if(_maxPower>s.GetMaxPower()){
+        res=Set(*this);
+        res._bitField=res._bitField|s._bitField;  
     }
-    return result;
+    else 
+        res._bitField=res._bitField|_bitField;
+    return res;
 }
 Set Set::operator* (const Set &s){
-    Set result(std::min(_maxPower, s._maxPower));
-    result._bitField = _bitField & s._bitField; 
-    return result;
+    Set res=Set(s);
+    if(_maxPower<s.GetMaxPower()){
+        res=Set(*this);
+        res._bitField=res._bitField&s._bitField;
+    }
+    else
+        res._bitField=res._bitField&_bitField;
+    return res;
 }
 Set Set::operator~ (){
     for (size_t i=0; i<=_maxPower; i++)
