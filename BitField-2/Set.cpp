@@ -76,15 +76,20 @@ Set Set::operator~ (){
 }
 std::vector<uint64_t> Set::GetPrimary(){
     std::vector<uint64_t> simple;
+    BitField tmp=_bitField;
+    uint64_t current_div=2;
     simple.push_back(1);
-    Set copy(*this);// копия, чтобы не изменять исходное
-    for (size_t i = 2; i <= copy.GetMaxPower(); ++i) {
-        if (copy.IsMember(i)) {
-            simple.push_back(i);
-            for (size_t j = i * i; j <= copy.GetMaxPower(); j += i) {
-                copy.DelElem(j);
+    while(current_div<_maxPower){
+        if (IsMember(current_div)){
+            for(uint64_t i=current_div+current_div; i<_maxPower;i+=current_div){
+                _bitField.ClrBit(i);
             }
         }
-    }
-    return simple;
+        if (IsMember(current_div))
+            simple.push_back(current_div);
+        current_div++;
+                
+        }
+        _bitField=tmp;
+        return simple;
 }
