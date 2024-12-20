@@ -24,7 +24,7 @@ void Set::DelElem(const uint64_t Elem){
 }
 bool Set::IsMember(uint64_t Elem) const{
     if (Elem >= _maxPower) 
-        throw std::out_of_range("wrong!");
+        throw "wrong!";
     return _bitField.GetBit(Elem);
 }
 
