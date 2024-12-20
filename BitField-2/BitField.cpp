@@ -21,7 +21,7 @@ BitField::BitField(size_t len) {
 BitField::BitField(const BitField& tmp) {
     _sizeBit = tmp._sizeBit;
     _memSize = tmp._memSize;
-    _mem = new uint16_t[_memSize];
+    _mem = new uint16_t[_memSize];//gg
     for (size_t i = 0; i < _memSize; ++i)
         _mem[i] = tmp._mem[i];
 }
@@ -90,8 +90,12 @@ bool BitField::operator==(const BitField& tmp) const{
     return true;
 }
 BitField BitField::operator~(){
-    BitField res=BitField(*this);
-    for(size_t i =0;i<_memSize;i++)
-        res._mem[i]=~_mem[i];
-    return res;
+    BitField copy = BitField(*this);
+    for (size_t i = 0; i < _sizeBit; i++){
+        if (GetBit(i))
+            copy.ClrBit(i);
+        else 
+            copy.SetBit(i);
+    }
+    return copy;
 }
