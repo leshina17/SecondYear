@@ -1,7 +1,7 @@
 #include "Set.h"
 //ПЕРЕВОД В БИТФИЛДЫ И ОБРАТНО КАК-ТО АККУРАТНО
 
-Set::Set(size_t mp) : _bitField(10) {
+Set::Set(size_t mp) : _bitField(mp) {
     _maxPower=mp;
 }
 Set::Set(const Set &s) : _bitField(s._maxPower){
@@ -23,8 +23,6 @@ void Set::DelElem(const uint64_t Elem){
     _bitField.ClrBit(Elem);
 }
 bool Set::IsMember(uint64_t Elem) const{
-    // if (Elem >= _maxPower) 
-    //     throw "wrong!";
     return _bitField.GetBit(Elem);
 }
 
