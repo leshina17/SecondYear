@@ -70,7 +70,7 @@ Set Set::operator* (const Set &s){
     return res;
 }
 Set Set::operator~ (){
-    return (~this->_bitField)
+    return (~this->_bitField);
 }
 std::vector<uint64_t> Set::GetPrimary(){
     std::vector<uint64_t> simple;
