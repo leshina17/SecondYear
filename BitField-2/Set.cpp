@@ -4,7 +4,7 @@
 Set::Set(size_t mp) : _bitField(10) {
     _maxPower=mp;
 }
-Set::Set(const Set &s) : _bitField(10){
+Set::Set(const Set &s) : _bitField(s._maxPower){
     _maxPower = s._maxPower;
     _bitField = s._bitField;
 } 
@@ -23,16 +23,16 @@ void Set::DelElem(const uint64_t Elem){
     _bitField.ClrBit(Elem);
 }
 bool Set::IsMember(uint64_t Elem) const{
-    if (Elem >= _maxPower) 
-        throw "wrong!";
+    // if (Elem >= _maxPower) 
+    //     throw "wrong!";
     return _bitField.GetBit(Elem);
 }
 
 bool Set::operator== (const Set &s) const{
-    return ((_maxPower==s._maxPower)&&(_bitField==s._bitField));
+    return (_bitField==s._bitField);
 }
 bool Set::operator!= (const Set &s) const{
-    if ((_maxPower==s._maxPower)&&(_bitField==s._bitField))
+    if (_bitField==s._bitField)
         return false;
     return true;
 }
@@ -70,24 +70,22 @@ Set Set::operator* (const Set &s){
     return res;
 }
 Set Set::operator~ (){
-    for (size_t i=0; i<=_maxPower; i++)
-        _maxPower=~_maxPower;
-    return *this;
+    return (~this->_bitField)
 }
 std::vector<uint64_t> Set::GetPrimary(){
     std::vector<uint64_t> simple;
     BitField tmp=_bitField;
-    uint64_t current_div=2;
+    uint64_t now_div=2;
     simple.push_back(1);
-    while(current_div<_maxPower){
-        if (IsMember(current_div)){
-            for(uint64_t i=current_div+current_div; i<_maxPower;i+=current_div){
+    while(now_div<_maxPower){
+        if (IsMember(now_div)){
+            for(uint64_t i=now_div+now_div; i<_maxPower;i+=now_div){
                 _bitField.ClrBit(i);
             }
         }
-        if (IsMember(current_div))
-            simple.push_back(current_div);
-        current_div++;
+        if (IsMember(now_div))
+            simple.push_back(now_div);
+        now_div++;
                 
         }
         _bitField=tmp;
